@@ -21,13 +21,15 @@ function = """
 [ 1 ] Fast Nuke
 
 [ 2 ] Multi Nuker
+
+[ 3 ] Get id ( CH )
 """
 
 ui_choice = "Function > "
 
 def main():
 
-    os.system('cls')
+    os.system('clear')
 
     Anime.Fade(Center.Center(meoaw_ui),Colors.rainbow,Colorate.Vertical,enter=True)
 
@@ -43,7 +45,7 @@ def main():
 
     if choice == "1":
                     
-        os.system('cls')
+        os.system('clear')
 
         print(" ")
 
@@ -51,7 +53,7 @@ def main():
 
         print(" ")
 
-        os.system('cls')
+        os.system('clear')
 
         print(" ")
 
@@ -61,8 +63,6 @@ def main():
 
         sleep(0)
 
-        os.system('cls & title Meoaw Setup ( 4.1 )')
-
         print(" ")
 
         Write.Print("Start core !", Colors.cyan_to_green, interval=0.04)
@@ -71,7 +71,7 @@ def main():
 
         sleep(0)
 
-        os.system('cls')
+        os.system('clear')
 
         i = 0
 
@@ -89,13 +89,51 @@ def main():
 
     elif choice == "2":
 
-        os.system('cls')
+        os.system('clear')
 
         print(" ")
 
         print("Use by 50 User to unlock this !")
 
         print(" ")
+
+    elif choice == "3":
+
+        os.system('clear')
+
+        print(" ")
+
+        print("Get id...")
+
+        print(" ")
+
+        sleep(0)
+
+        token = gotji.main["token"]
+
+        meoaw = requests.session()
+
+        api = "v9"
+
+        Server_id = gotji.main["sv_id"]
+
+        response = meoaw.get(f"https://discord.com/api/{api}/guilds/{Server_id}/channels",headers={"authorization": token})
+
+        with open('id.txt', 'a') as c:
+                                
+            for channels in response.json():
+
+                c.write(channels['id']+"\n")
+
+            else:
+
+                os.system('clear')
+
+                print(" ")
+
+                print("Done !")
+
+                print(" ")
 
 def attack():
 
